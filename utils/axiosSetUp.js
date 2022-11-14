@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
 axiosInstance.defaults.headers.post["Content-Type"] = "application/json";
 
 axiosInstance.interceptors.request.use((config) => {
-  config.headers['Access-Control-Allow-Origin'] = "*";
+
   if (config.url !== "/login" || config.url !== "/signup") {
     console.log('hello')
     const jwt = JSON.parse(localStorage.getItem("accessToken"));
@@ -15,6 +15,12 @@ axiosInstance.interceptors.request.use((config) => {
       config.headers.Authorization = `Bearer ${jwt}`;
     }
   }
+  return config;
+});
+
+axiosInstance.interceptors.response.use((config) => {
+  config.headers['Access-Control-Allow-Origin'] = "*";
+  
   return config;
 });
 
