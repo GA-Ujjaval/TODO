@@ -2,7 +2,7 @@ import axios from "axios";
 // import { toast } from "react-toastify";
 
 const axiosInstance = axios.create({
-  baseURL: "http://13.234.83.229:3000/user",
+  baseURL: "https://todo-be-ashen.vercel.app/user",
 });
 axiosInstance.defaults.headers.post["Content-Type"] = "application/json";
 
