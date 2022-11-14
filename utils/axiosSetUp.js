@@ -5,6 +5,7 @@ const axiosInstance = axios.create({
   baseURL: "https://todo-be-ashen.vercel.app/user",
 });
 axiosInstance.defaults.headers.post["Content-Type"] = "application/json";
+axiosInstance.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
 axiosInstance.interceptors.request.use((config) => {
   if (config.url !== "/login" || config.url !== "/signup") {
