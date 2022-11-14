@@ -67,6 +67,7 @@ export default function Signup() {
     const response = await axiosInstance
       .post("/signup", postData)
       .catch((error) => {
+        console.log(error,70)
         toast.error(error.message ? error.message : "user already exists", {
           position: toast.POSITION.BOTTOM_RIGHT,
         });
